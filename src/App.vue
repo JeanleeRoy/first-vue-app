@@ -3,6 +3,9 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld :msg="msg" />
     <input type="text" v-model="name" />
+    <button v-on:click="format">format</button>
+
+    <p>{{ formatname }}</p>
   </div>
 </template>
 
@@ -16,13 +19,16 @@ export default {
     return {
       msg: "Hola mundo",
       name: "",
-      formatname: "a",
+      formatname: "",
     };
   },
 
   methods: {
     format() {
-      thi.formatname = this.name.
+      this.formatname = this.name
+        .split(" ")
+        .join("-")
+        .toUpperCase();
     },
   },
 
