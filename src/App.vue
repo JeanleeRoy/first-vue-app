@@ -3,9 +3,6 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld :msg="msg" />
     <input type="text" v-model="name" />
-    <input type="text" v-model="lastname" />
-
-    <p>{{ fullname }}</p>
   </div>
 </template>
 
@@ -19,15 +16,17 @@ export default {
     return {
       msg: "Hola mundo",
       name: "",
-      lastname: "",
+      formatname: "",
     };
   },
 
-  computed: {
-    fullname() {
-      return `${this.name} ${this.lastname}`;
+  methods: {
+    format() {
+      thi.formatname = this.name.
     },
   },
+
+  computed: {},
 
   components: {
     HelloWorld,
