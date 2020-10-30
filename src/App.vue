@@ -3,7 +3,9 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld :msg="msg" />
     <input type="text" v-model="name" />
-    <a v-bind:href="url">link</a>
+    <input type="text" v-model="lastname" />
+
+    <p>{{ fullname }}</p>
   </div>
 </template>
 
@@ -17,8 +19,14 @@ export default {
     return {
       msg: "Hola mundo",
       name: "",
-      url: "https://www.google.com",
+      lastname: "",
     };
+  },
+
+  computed: {
+    fullname() {
+      return `${this.name} ${this.lastname}`;
+    },
   },
 
   components: {
