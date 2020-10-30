@@ -2,6 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld :msg="msg" />
+    <p v-show="showValue">{{ value }}</p>
+    <p v-if="showValue">{{ value }}</p>
   </div>
 </template>
 
@@ -14,7 +16,7 @@ export default {
   data() {
     return {
       msg: "Hola mundo",
-      showValue: false,
+      showValue: true,
       value: "Something",
     };
   },
