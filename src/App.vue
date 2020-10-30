@@ -1,45 +1,71 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld :msg="msg" />
-    <input type="text" v-model="name" />
-    <button v-on:click="format">format</button>
+    <section class="section">
+      <nav class="nav has-shadow">
+        <div class="container">
+          <div class="field has-addons">
+            <div class="control">
+              <input
+                class="input is-large"
+                type="text"
+                placeholder="Search music"
+                v-model="searchQuery"
+              />
+            </div>
+            <div class="control">
+              <a class="button is-info is-large" v-on:click="search">Buscar</a>
+              <a class="button is-danger is-large" v-on:click="search"
+                >&times;
+              </a>
+              <p>
+                <small>{{ searchMsg }} </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-    <p>{{ formatname }}</p>
+      <div class="container">
+        <div class="columns">
+          <div class="column" :key="i.name" v-for="i in tracks">
+            {{ i.name }} - {{ i.artist }}
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+const tracks = [
+  { name: "No time to die", artist: "Billie Eilish" },
+  { name: "Billie Jeans", artist: "Michael Jackson" },
+];
 
 export default {
   name: "App",
 
   data() {
     return {
-      msg: "Hola mundo",
-      name: "",
-      formatname: "",
+      searchQuery: "",
+      tracks: [],
     };
   },
 
   methods: {
-    format() {
-      this.formatname = this.name
-        .split(" ")
-        .join("-")
-        .toUpperCase();
+    search() {
+      this.tracks = tracks;
     },
   },
 
-  computed: {},
-
-  components: {
-    HelloWorld,
+  computed: {
+    searchMsg() {
+      return `Se encontraron ${this.tracks.length} canciones`;
+    },
   },
+
+  components: {},
 };
 </script>
 
-<style>
-@import "./scss/main.scss";
-</style>
+<style></style>
