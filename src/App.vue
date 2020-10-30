@@ -16,7 +16,7 @@ export default {
     return {
       msg: "Hola mundo",
       name: "",
-      formatname: "",
+      formatname: "a",
     };
   },
 
